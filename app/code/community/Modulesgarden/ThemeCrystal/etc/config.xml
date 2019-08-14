@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Modulesgarden_ThemeCrystal>
+            <version>1.0.0</version>
+        </Modulesgarden_ThemeCrystal>
+    </modules>
+
+    <global>
+        <models>
+            <mgthemecrystal>
+                <class>Modulesgarden_ThemeCrystal_Model</class>
+                <resourceModel>mgthemecrystal_resource</resourceModel>
+            </mgthemecrystal>
+            <mgthemecrystal_resource>
+                <class>Modulesgarden_ThemeCrystal_Model_Resource</class>
+            </mgthemecrystal_resource>
+        </models>
+        <blocks>
+            <mgthemecrystal>
+                <class>Modulesgarden_ThemeCrystal_Block</class>
+            </mgthemecrystal>
+        </blocks>
+        <helpers>
+            <mgthemecrystal>
+                <class>Modulesgarden_ThemeCrystal_Helper</class>
+            </mgthemecrystal>
+        </helpers>
+        <resources>
+            <mgthemecrystal_setup>
+                <setup>
+                    <module>Modulesgarden_ThemeCrystal</module>
+                    <class>Mage_Sales_Model_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </mgthemecrystal_setup>
+            <mgthemecrystal_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </mgthemecrystal_write>
+            <mgthemecrystal_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </mgthemecrystal_read>
+        </resources>
+    </global>
+
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <mgthemecrystal> <!-- the same as <sections> child name -->
+                                            <title>Modulesgarden Theme Crystal</title>
+                                        </mgthemecrystal>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
+    <default>
+        <mgthemecrystal>
+            <main>
+                <colorscheme>green</colorscheme>
+                <fontfamily>opensans</fontfamily>
+                <colorfooter>lightgray</colorfooter>
+                <breadcrumbs>yes</breadcrumbs>
+                <showhome>no</showhome>
+                <slider>group</slider>
+                <colorslider>dark</colorslider>
+                <shadowslider>none</shadowslider>
+            </main>
+        </mgthemecrystal>
+    </default>
+</config>

@@ -1,0 +1,58 @@
+<div id="features-container">
+<?php $featured_products = $this->getProducts(); ?>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php if ($featured_products && $featured_products->getSize()): ?>
+<?php $productsItems = $featured_products->getItems() ?>
+<?php shuffle($productsItems); ?>
+    <div class="box recently">
+        <div class="page-title catalog_title"><h2><?php echo $this->__('Featured Products') ?></h2></div>
+        <div class="customNavigation">
+            <a class="btn prev1"></a>
+            <a class="btn next1"></a>
+        </div>
+        <div class="listing-type-grid  catalog-listing">
+            <div id="owl-featured" class="owl-carousel owl-carousel-features products-grid">
+                <?php
+                    $i=0;
+                    foreach ($productsItems as $_product): ?>
+                        <?php $_columnCount = 20; ?>
+
+                        <?php ++$i ?>
+                        <div class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+                            <div>
+                                <div class="product_img_container">
+                                    <a class="product-image" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>">
+                                        <?php if($_product->getMgIsNew()) { ?>
+                                            <div class="new-product"><?php echo $this->__('NEW') ?></div>
+                                        <?php } ?>
+                                        <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(277, 277); ?>" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />
+                                    </a>
+                                    <a href="<?php echo $_product->getProductUrl() ?>" class="hover view_more"><?php echo $this->__('View product') ?></a>
+                                </div>
+                            </div>
+                            <div class="gird_prod_desc">
+                                <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                                <?php echo $this->getPriceHtml($_product, true) ?>
+                                <?php if($_product->isSaleable()): ?>
+                                    <p><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart hover" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"></button></p>
+                                <?php else: ?>
+                                    <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                                <?php endif; ?>
+                                <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                    <a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="wishlist_icon hover"></a>
+                                <?php endif; ?>    
+                                <ul class="add-to-links">
+                                    <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+                                        <li><a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
+                                    <?php endif; ?>
+                                </ul>
+
+                            </div>
+                        </div>
+                    <?php endforeach ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+</div>
+<br class="clear"/>

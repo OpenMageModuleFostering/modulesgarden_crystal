@@ -1,0 +1,176 @@
+<?php 
+if (Mage::helper('core')->isModuleEnabled('Modulesgarden_SPSSliders')){
+    $slider = Mage::getModel('storepluginsetsliders/slider')->loadByCode('crystal_slider_simple');
+    $slider2 = Mage::getModel('storepluginsetsliders/slider')->loadByCode('crystal_small_baners');
+    $slider3 = Mage::getModel('storepluginsetsliders/slider')->loadByCode('crystal_slider_one');
+    
+    $colorFont = Mage::getStoreConfig('mgthemecrystal/main/colorslider');
+    if ( $colorFont == 'bright'){
+        $colorSlider = '#fff';
+    }else {
+        $colorSlider = '#333';
+    } 
+    
+    $shadowSliderVariable = Mage::getStoreConfig('mgthemecrystal/main/shadowslider');
+    if ( $shadowSliderVariable == 'shadow'){
+        $shadowSlider = 'text-shadow:1px 1px 2px rgba(150, 150, 150, 1);';
+    }else {
+        $shadowSlider = '';
+    } 
+?>
+
+<?php $sliderType = Mage::getStoreConfig('mgthemecrystal/main/slider');
+    if ( $sliderType == 'group'){ ?>
+        <?php if (!$slider->isEmpty() && $slider->getEnabledBanners()->getSize() > 0 && $slider->isEnabledForCurrentStoreView() && !$slider2->isEmpty() && $slider2->getEnabledBanners()->getSize() > 0 && $slider2->isEnabledForCurrentStoreView()) { ?>
+            <div class="baners">
+                <div id="slider-wrapper">
+                    <section id="layerslider" class="slider" style="width:893px; height:425px; max-width:893px;" >
+                        <div class='slides'>
+                            <?php 
+                                foreach ($slider->getEnabledBanners() as $banner){ ?>
+
+                                <div class='ls-slide' data-ls='slidedelay: 4000; transition2d: 2,7,9;'>
+                                <?php
+                                    echo '<img class="ls-bg" alt="Slide background" src="'.$banner->getFileUrl().'"/>';
+                                    $titleSlide = $banner->getTitle();
+                                    if (strlen($titleSlide) > 36){
+                                        $titlecSlide = substr($titleSlide,0,36); 
+                                        $titleSlideWrap = $titleSlide."...";
+                                    }
+                                    else {
+                                        $titleSlideWrap = $titleSlide;
+                                    }
+                                    echo '<h2 class="ls-l slide-title" style="'.$shadowSlider.'left:50px; top:70px; color:'.$colorSlider.';" data-ls="offsetxin: 0; offsetyin: top; delayin:100; rotatexin:180; scalexin:2;">'.$titleSlideWrap.'</h2>';
+                                    $descSlide = $banner->getDescription();
+                                    if (strlen($descSlide) > 120){
+                                        $descSlide = substr($descSlide,0,120); 
+                                        $descSlideWrap = $descSlide."...";
+                                    }
+                                    else {
+                                        $descSlideWrap = $descSlide;
+                                    }
+                                    echo '<p class="ls-l slide-desc" style="'.$shadowSlider.'left:50px; top:50%; color:'.$colorSlider.';" data-ls="offsetxin: 0; offsetyin: top; delayin:300; rotateyin:180">'.$descSlideWrap.'</p>';
+                                    echo '<a class="ls-l slide-link" href="'.$banner->getUrl().'"></a>';
+                                    if ($banner->getUrlTitle()){
+                                        echo '<a class="ls-l link slide-btn" style="left:50px; top:73%;" data-ls="offsetxin: top; delayin:500;" href="'.$banner->getUrl().'">'.$banner->getUrlTitle().'</a>';
+                                    }
+                                ?>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </section>
+                </div>
+                <section class="min_baners">
+                    <ul>
+                        <?php
+
+                            foreach ($slider2->getEnabledBanners() as $banner){
+                                echo "<li><a href='".$banner->getUrl()."'><img src='".$banner->getFileUrl()."'/></a></li>";
+                            }
+                        ?>
+                    </ul>
+                </section>
+                <div class="clearer"></div>
+            </div>
+        <?php } ?>
+        <!-- koniec slidera -->
+    <?php } elseif ($sliderType == 'one') { ?>
+        <?php if (!$slider3->isEmpty() && $slider3->getEnabledBanners()->getSize() > 0 && $slider3->isEnabledForCurrentStoreView()) { ?>
+            <div class="baners">
+                <div id="slider-wrapper-one">
+                    <section id="layerslider" class="slider" style="width:1200px; height:425px; max-width:1200px;" >
+                        <div class='slides'>
+                            <?php 
+                                foreach ($slider3->getEnabledBanners() as $banner){ ?>
+
+                                <div class='ls-slide' data-ls='slidedelay: 4000; transition2d: 2,7,9;'>
+                                <?php
+                                    echo '<img class="ls-bg" alt="Slide background" src="'.$banner->getFileUrl().'"/>';
+                                    $titleSlide = $banner->getTitle();
+                                    if (strlen($titleSlide) > 36){
+                                        $titlecSlide = substr($titleSlide,0,36); 
+                                        $titleSlideWrap = $titleSlide."...";
+                                    }
+                                    else {
+                                        $titleSlideWrap = $titleSlide;
+                                    }
+                                    echo '<h2 class="ls-l slide-title" style="'.$shadowSlider.'left:50px; top:70px;color:'.$colorSlider.';" data-ls="offsetxin: 0; offsetyin: top; delayin:100; rotatexin:180; scalexin:2;">'.$titleSlideWrap.'</h2>';
+                                    $descSlide = $banner->getDescription();
+                                    if (strlen($descSlide) > 120){
+                                        $descSlide = substr($descSlide,0,120); 
+                                        $descSlideWrap = $descSlide."...";
+                                    }
+                                    else {
+                                        $descSlideWrap = $descSlide;
+                                    }
+                                    echo '<p class="ls-l slide-desc" style="'.$shadowSlider.'left:50px; top:50%;color:'.$colorSlider.';" data-ls="offsetxin: 0; offsetyin: top; delayin:300; rotateyin:180">'.$descSlideWrap.'</p>';
+                                    echo '<a class="ls-l slide-link" href="'.$banner->getUrl().'"></a>';
+                                    if ($banner->getUrlTitle()){
+                                        echo '<a class="ls-l link slide-btn" style="left:50px; top:73%;" data-ls="offsetxin: top; delayin:500;" href="'.$banner->getUrl().'">'.$banner->getUrlTitle().'</a>';
+                                    }
+                                ?>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        <?php } ?>
+        <!-- koniec slidera -->
+        <?php }else { ?>
+            <?php if (!$slider->isEmpty() && $slider->getEnabledBanners()->getSize() > 0 && $slider->isEnabledForCurrentStoreView() && !$slider2->isEmpty() && $slider2->getEnabledBanners()->getSize() > 0 && $slider2->isEnabledForCurrentStoreView()) { ?>
+                <div class="baners">
+                    <div id="slider-wrapper">
+                        <section id="layerslider" class="slider" style="width:893px; height:425px; max-width:893px;" >
+
+                            <div class='slides'>
+                                <?php 
+                                    foreach ($slider->getEnabledBanners() as $banner){ ?>
+
+                                    <div class='ls-slide' data-ls='slidedelay: 4000; transition2d: 2,7,9;'>
+                                    <?php
+                                        echo '<img class="ls-bg" alt="Slide background" src="'.$banner->getFileUrl().'"/>';
+                                            $titleSlide = $banner->getTitle();
+                                        if (strlen($titleSlide) > 36){
+                                            $titlecSlide = substr($titleSlide,0,36); 
+                                            $titleSlideWrap = $titleSlide."...";
+                                        }
+                                        else {
+                                            $titleSlideWrap = $titleSlide;
+                                        }
+                                        echo '<h2 class="ls-l slide-title" style="left:50px; top:70px;color:'.$colorSlider.';" data-ls="offsetxin: 0; offsetyin: top; delayin:100; rotatexin:180; scalexin:2;">'.$titleSlideWrap.'</h2>';
+                                        $descSlide = $banner->getDescription();
+                                        if (strlen($descSlide) > 120){
+                                            $descSlide = substr($descSlide,0,120); 
+                                            $descSlideWrap = $descSlide."...";
+                                        }
+                                        else {
+                                            $descSlideWrap = $descSlide;
+                                        }
+                                        echo '<p class="ls-l slide-desc" style="left:50px; top:50%;color:'.$colorSlider.';" data-ls="offsetxin: 0; offsetyin: top; delayin:300; rotateyin:180">'.$descSlideWrap.'</p>';
+                                        echo '<a class="ls-l slide-link" href="'.$banner->getUrl().'"></a>';
+                                        if ($banner->getUrlTitle()){
+                                            echo '<a class="ls-l link slide-btn" style="left:50px; top:73%;" data-ls="offsetxin: top; delayin:500;" href="'.$banner->getUrl().'">'.$banner->getUrlTitle().'</a>';
+                                        }
+                                    ?>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </section>
+                    </div>
+                    <section class="min_baners">
+                        <ul>
+                            <?php
+                                foreach ($slider2->getEnabledBanners() as $banner){
+                                    echo "<li><a href='".$banner->getUrl()."'><img src='".$banner->getFileUrl()."'/></a></li>";
+                                }
+                            ?>
+                        </ul>
+                    </section>
+                    <div class="clearer"></div>
+                </div>
+            <?php } ?>
+            <!-- koniec slidera -->
+        <?php } 
+    }
+?>

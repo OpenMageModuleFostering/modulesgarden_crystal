@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <modulesgarden>
+            <label><![CDATA[<div style="position: absolute;"><img id="mg_logo_block" src=""border="0" /></div>&nbsp;<script>var baseurl = SKIN_URL.indexOf("adminhtml"); $('mg_logo_block').src = SKIN_URL.substring(0, baseurl) + "adminhtml/base/default/modulesgardenbase/img/mgcommerce-logo.png";</script>]]></label>
+            <sort_order>1100</sort_order>
+        </modulesgarden>
+    </tabs>
+    <sections>
+        <mgthemecrystal translate="label">
+            <class>separator-top</class>
+            <label>Theme Crystal</label> <!-- change it for theme name -->
+            <tab>modulesgarden</tab>
+            <sort_order>12</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <main translate="label">
+                    <label>Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <!-- FIELDS IN CONFIGURATION -->
+                        <colorscheme translate="label"> <!-- Mage::getStoreConfig('mgthemecrystal/main/colorscheme') -->
+                            <label>Color Scheme</label>
+                            <comment></comment>
+                            <frontend_type>select</frontend_type> <!-- http://www.magentocommerce.com/wiki/5_-_modules_and_development/admin/xml_structure_for_admin_configurations -->
+                            <source_model>mgthemecrystal/system_config_source_select</source_model> <!-- only if select|multiselect with constant options (see below) -->
+                            <options> <!-- only if select|multiselect with constant options -->
+                                <green>
+                                    <label>Green</label>
+                                    <value>green</value>
+                                </green>
+                                <blue> <!-- just unique -->
+                                    <label>Blue</label>
+                                    <value>blue</value>
+                                </blue>
+                                <red>
+                                    <label>Red</label>
+                                    <value>red</value>
+                                </red>
+                            </options>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store> <!-- field per Store View -->
+                        </colorscheme>
+                        <colorslider translate="label"> <!-- Mage::getStoreConfig('mgthemecrystal/main/colorscheme') -->
+                            <label>Font color on slider</label>
+                            <comment>Select font color for slider.</comment>
+                            <frontend_type>select</frontend_type> <!-- http://www.magentocommerce.com/wiki/5_-_modules_and_development/admin/xml_structure_for_admin_configurations -->
+                            <source_model>mgthemecrystal/system_config_source_select</source_model> <!-- only if select|multiselect with constant options (see below) -->
+                            <options> <!-- only if select|multiselect with constant options -->
+                                <dark>
+                                    <label>Dark</label>
+                                    <value>dark</value>
+                                </dark>
+                                <bright> <!-- just unique -->
+                                    <label>Bright</label>
+                                    <value>bright</value>
+                                </bright>
+                            </options>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store> <!-- field per Store View -->
+                        </colorslider>
+                        <shadowslider translate="label"> <!-- Mage::getStoreConfig('mgthemecrystal/main/colorscheme') -->
+                            <label>Shadowed text on slider</label>
+                            <comment>Add shadow for white text on slider.</comment>
+                            <frontend_type>select</frontend_type> <!-- http://www.magentocommerce.com/wiki/5_-_modules_and_development/admin/xml_structure_for_admin_configurations -->
+                            <source_model>mgthemecrystal/system_config_source_select</source_model> <!-- only if select|multiselect with constant options (see below) -->
+                            <options> <!-- only if select|multiselect with constant options -->
+                                <none>
+                                    <label>No shadow</label>
+                                    <value>none</value>
+                                </none>
+                                <shadow> <!-- just unique -->
+                                    <label>Add shadow</label>
+                                    <value>shadow</value>
+                                </shadow>
+                            </options>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store> <!-- field per Store View -->
+                        </shadowslider>
+                        <slider translate="label"> <!-- Mage::getStoreConfig('mgthemecrystal/main/colorscheme') -->
+                            <label>Select Slider type</label>
+                            <comment>Select type of slider which you want display on your home page</comment>
+                            <frontend_type>select</frontend_type> <!-- http://www.magentocommerce.com/wiki/5_-_modules_and_development/admin/xml_structure_for_admin_configurations -->
+                            <source_model>mgthemecrystal/system_config_source_select</source_model> <!-- only if select|multiselect with constant options (see below) -->
+                            <options> <!-- only if select|multiselect with constant options -->
+                                <group>
+                                    <label>Gropup sliders (1 big and 2 small)</label>
+                                    <value>group</value>
+                                </group>
+                                <one> <!-- just unique -->
+                                    <label>One big slider</label>
+                                    <value>one</value>
+                                </one>
+                            </options>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store> <!-- field per Store View -->
+                        </slider>
+                        <fontfamily translate="label"> 
+                            <label>Font</label>
+                            <comment>Choose your favorite font.</comment>
+                            <frontend_type>select</frontend_type> <!-- http://www.magentocommerce.com/wiki/5_-_modules_and_development/admin/xml_structure_for_admin_configurations -->
+                            <source_model>mgthemecrystal/system_config_source_select</source_model> <!-- only if select|multiselect with constant options (see below) -->
+                            <options> <!-- only if select|multiselect with constant options -->
+                                <opensans> <!-- just unique -->
+                                    <label>Open Sans</label>
+                                    <value>opensans</value>
+                                </opensans>
+                                <lato>
+                                    <label>Lato</label>
+                                    <value>lato</value>
+                                </lato>
+                                <roboto>
+                                    <label>Roboto</label>
+                                    <value>roboto</value>
+                                </roboto>
+                                <raleway>
+                                    <label>Raleway</label>
+                                    <value>raleway</value>
+                                </raleway>
+                            </options>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store> <!-- field per Store View -->
+                        </fontfamily>
+                        <colorfooter translate="label"> 
+                            <label>Choose color (footer and top-header)</label>
+                            <comment></comment>
+                            <frontend_type>select</frontend_type> <!-- http://www.magentocommerce.com/wiki/5_-_modules_and_development/admin/xml_structure_for_admin_configurations -->
+                            <source_model>mgthemecrystal/system_config_source_select</source_model> <!-- only if select|multiselect with constant options (see below) -->
+                            <options> <!-- only if select|multiselect with constant options -->
+                                <lightgray> <!-- just unique -->
+                                    <label>Light Gray</label>
+                                    <value>lightgray</value>
+                                </lightgray>
+                                <dark>
+                                    <label>Dark</label>
+                                    <value>dark</value>
+                                </dark>
+                                <white>
+                                    <label>White</label>
+                                    <value>white</value>
+                                </white>
+                            </options>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store> <!-- field per Store View -->
+                        </colorfooter>
+                        <breadcrumbs translate="label"> 
+                            <label>Show breadcrumbs</label>
+                            <comment>Breadcrumbs under menu navigation.</comment>
+                            <frontend_type>select</frontend_type> <!-- http://www.magentocommerce.com/wiki/5_-_modules_and_development/admin/xml_structure_for_admin_configurations -->
+                            <source_model>mgthemecrystal/system_config_source_select</source_model> <!-- only if select|multiselect with constant options (see below) -->
+                            <options> <!-- only if select|multiselect with constant options -->
+                                <yes> <!-- just unique -->
+                                    <label>Yes</label>
+                                    <value>yes</value>
+                                </yes>
+                                <no>
+                                    <label>No</label>
+                                    <value>no</value>
+                                </no>
+                            </options>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store> <!-- field per Store View -->
+                        </breadcrumbs>
+                        <showhome translate="label"> <!-- just an example -->
+                            <label>Show home page link</label>
+                            <comment>Add home page link in top-navigation</comment>
+                            <frontend_type>select</frontend_type> <!-- http://www.magentocommerce.com/wiki/5_-_modules_and_development/admin/xml_structure_for_admin_configurations -->
+                            <source_model>mgthemecrystal/system_config_source_select</source_model> <!-- only if select|multiselect with constant options (see below) -->
+                            <options> <!-- only if select|multiselect with constant options -->
+                                <no>
+                                    <label>No</label>
+                                    <value>no</value>
+                                </no>
+                                <yes>
+                                    <label>Yes</label>
+                                    <value>yes</value>
+                                </yes>
+                            </options>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store> <!-- field per Store View -->
+                        </showhome>
+                    </fields>
+                </main>
+            </groups>
+        </mgthemecrystal>
+    </sections>
+</config>
