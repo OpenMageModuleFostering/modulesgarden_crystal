@@ -2,7 +2,7 @@
 <config>
     <tabs>
         <modulesgarden>
-            <label><![CDATA[<div style="position: absolute;"><img id="mg_logo_block" src=""border="0" /></div>&nbsp;<script>var baseurl = SKIN_URL.indexOf("adminhtml"); $('mg_logo_block').src = SKIN_URL.substring(0, baseurl) + "adminhtml/base/default/modulesgardenbase/img/mgcommerce-logo.png";</script>]]></label>
+            <label><![CDATA[<div style="line-height:0;"><img id="mg_logo_block" src="http://www.modulesgarden.com/images/magento/mgcommerce-logo-black.png" /></div>]]></label>
             <sort_order>1100</sort_order>
         </modulesgarden>
     </tabs>
