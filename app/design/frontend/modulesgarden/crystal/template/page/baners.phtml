@@ -1,8 +1,8 @@
 <?php 
-if (Mage::helper('core')->isModuleEnabled('Modulesgarden_SPSSliders')){
-    $slider = Mage::getModel('storepluginsetsliders/slider')->loadByCode('crystal_slider_simple');
-    $slider2 = Mage::getModel('storepluginsetsliders/slider')->loadByCode('crystal_small_baners');
-    $slider3 = Mage::getModel('storepluginsetsliders/slider')->loadByCode('crystal_slider_one');
+if (Mage::helper('core')->isModuleEnabled('Modulesgarden_Base')){
+    $slider = Mage::getModel('modulesgarden_base/slider')->loadByCode('crystal_slider_simple');
+    $slider2 = Mage::getModel('modulesgarden_base/slider')->loadByCode('crystal_small_baners');
+    $slider3 = Mage::getModel('modulesgarden_base/slider')->loadByCode('crystal_slider_one');
     
     $colorFont = Mage::getStoreConfig('mgthemecrystal/main/colorslider');
     if ( $colorFont == 'bright'){
